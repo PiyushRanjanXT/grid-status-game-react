@@ -1,24 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Table from './components/Table'
+import useGame from './hooks/useGame'
 
 function App() {
+
+  // const mocck = [
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  //   [0,0,1,1,1,0,0,1,1,0,1,1,0,0,1,1,1,0,0,0],
+  //   [0,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0],
+  //   [0,0,1,1,1,0,0,1,1,0,1,1,0,0,1,1,1,0,0,0],
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  // ]
+
+  const {grid, nextTick, restartGame} = useGame(20,20
+   // ,mocck
+    );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>Grid State Game</h1>
+        <button onClick={nextTick}>Next Tick</button>
+        <button onClick={restartGame}>Restart</button>
+        <Table grid={grid} />
+       
     </div>
   );
 }
