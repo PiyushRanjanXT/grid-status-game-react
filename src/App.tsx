@@ -28,7 +28,7 @@ function App() {
   //   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
   // ]
 
-  const {grid, nextTick, restartGame} = useGame(20,20
+  const {grid, nextTick, restartGame} = useGame(50,50
    // ,mocck
     );
   return (
